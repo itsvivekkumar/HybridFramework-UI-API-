@@ -18,10 +18,10 @@ public class LoginPage {
         loginPageObject.userPass.sendKeys(pass);
         loginPageObject.loginBtn.click();
         Thread.sleep(2000);
-        String txt= loginPageObject.welcomText.getText();
-        if (txt.equalsIgnoreCase("Welcome "+userName)){
+        String txt = loginPageObject.welcomText.getText();
+        if (txt.equalsIgnoreCase("Welcome " + userName)) {
             System.out.println("Login sucess---------");
-        }else {
+        } else {
             System.out.println("Failed t0 login===");
         }
 

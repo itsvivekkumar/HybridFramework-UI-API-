@@ -9,16 +9,16 @@ import org.testng.annotations.BeforeMethod;
 public class UIBaseTest {
     protected WebDriver driver;
 
-    @BeforeMethod       //this works before every Test()
-    public void setUp(){
+    @BeforeMethod      //this works before every Test()
+    public void setUp() {
         WebDriverManager.chromedriver().setup();
-        driver= new ChromeDriver();
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://demoblaze.com/");
     }
 
     @AfterMethod                  //this works after every Test()
-    public void tearDown(){
+    public void tearDown() {
         driver.quit();
     }
 }

@@ -20,9 +20,9 @@ public class UserDataProvider {
         userPayload.setPhone("9843212300");
         userPayload.setUserStatus(100);
 
-        List<UserPayload> userPayloads=List.of(userPayload);
+        List<UserPayload> userPayloads = List.of(userPayload);
 
-        return new Object[][] {
+        return new Object[][]{
                 {userPayloads}
         };
     }

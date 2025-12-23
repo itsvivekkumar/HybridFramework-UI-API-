@@ -7,8 +7,8 @@ public class ApiBaseTest {
 
 
     @BeforeClass
-    public void setUp(){
-        RestAssured.baseURI="https://petstore.swagger.io/v2/";
+    public void setUp() {
+        RestAssured.baseURI = "https://petstore.swagger.io/v2/";
     }
 
 }

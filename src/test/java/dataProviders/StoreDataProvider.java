@@ -27,8 +27,8 @@ public class StoreDataProvider {
 //        order2.setStatus("approved");
 //        order2.setComplete(false);
 
-        return new Object[][] {
-                { storePayload }
+        return new Object[][]{
+                {storePayload}
 //                { order2 }
         };
     }

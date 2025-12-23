@@ -10,14 +10,15 @@ import org.testng.annotations.Test;
 import pojo.StorePayload;
 
 public class Store extends ApiBaseTest {
-String basePath= "store";
-int id;
+    String basePath = "store";
+    int id;
+
     @Test(priority = 1)
-    public void getStoreInventry(){
-        Response res=RestAssured.given()
+    public void getStoreInventry() {
+        Response res = RestAssured.given()
                 .basePath(basePath)
-                .pathParam("Inventry","inventory")
-                .header("accept","application/json")
+                .pathParam("Inventry", "inventory")
+                .header("accept", "application/json")
                 .when().get("/{Inventry}")
                 .then().statusCode(200).extract().response();
 //        System.out.println("Get response"+res.asString());
@@ -61,14 +62,14 @@ int id;
                 .body(storePayload)
                 .when().post("/{Order}")
                 .then().log().all().statusCode(200).extract().response();
-         id = Integer.parseInt(res.jsonPath().getString("id"));
+        id = Integer.parseInt(res.jsonPath().getString("id"));
         int petid = Integer.parseInt(res.jsonPath().getString("petId"));
         String statusValue = res.jsonPath().getString("status");
         String completeVal = res.jsonPath().getString("complete");
         Assert.assertEquals(10, id);
-        Assert.assertEquals(1,petid);
-        Assert.assertEquals(statusValue,"placed");
-        Assert.assertEquals(completeVal,"true");
+        Assert.assertEquals(1, petid);
+        Assert.assertEquals(statusValue, "placed");
+        Assert.assertEquals(completeVal, "true");
         System.out.println("Post store order done ---------");
     }
 
@@ -82,14 +83,14 @@ int id;
                 .when().get("/{Order}/{OrderId}")
                 .then().log().all().statusCode(200).extract().response();
 //        int id = Integer.parseInt(res.jsonPath().getString("id"));
-        System.out.println("Fetched id value ="+id);
+        System.out.println("Fetched id value =" + id);
         int petid = Integer.parseInt(res.jsonPath().getString("petId"));
         String statusValue = res.jsonPath().getString("status");
         String completeVal = res.jsonPath().getString("complete");
         Assert.assertEquals(Integer.parseInt(res.jsonPath().getString("id")), id);
-        Assert.assertEquals(1,petid);
-        Assert.assertEquals(statusValue,"placed");
-        Assert.assertEquals(completeVal,"true");
+        Assert.assertEquals(1, petid);
+        Assert.assertEquals(statusValue, "placed");
+        Assert.assertEquals(completeVal, "true");
         System.out.println("Get store order by ID done ---------");
     }
 
@@ -103,8 +104,8 @@ int id;
                 .when().get("/{Order}/{OrderId}")
                 .then().log().all().statusCode(200).extract().response();
 //        int id = Integer.parseInt(res.jsonPath().getString("id"));
-        System.out.println("Fetched id value ="+id);
-        System.out.println("Fetched value ="+res.jsonPath().getString("code"));
+        System.out.println("Fetched id value =" + id);
+        System.out.println("Fetched value =" + res.jsonPath().getString("code"));
 
         //we can not fetch here delete record bcuz that is not documented.Only verify statuscode()
 //        int outCode = Integer.parseInt(res.jsonPath().getString("code"));

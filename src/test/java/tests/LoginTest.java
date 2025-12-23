@@ -6,12 +6,11 @@ import pages.LoginPage;
 
 public class LoginTest extends UIBaseTest {
 
-
-
     @Test
     public void loginTest() throws InterruptedException {
-        LoginPage loginPage=new LoginPage(driver);
-        loginPage.login("admin","admin");
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.login("admin", "admin");
     }
+
 
 }
