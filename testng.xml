@@ -2,7 +2,10 @@
 
 <suite name="FrameworkDemo" verbose="1">
 
-    <!-- API Tests First -->
+    <listeners>
+        <listener class-name="utils.ExtentTestNGListener"/>
+    </listeners>
+<!--     API Tests First -->
     <test name="API Tests">
         <classes>
             <class name="api.store.Store"/>
@@ -10,6 +13,7 @@
         </classes>
     </test>
     <test name="UI Tests">
+        <parameter name="browser" value="chrome"/>
         <classes>
             <class name="tests.LoginTest"/>
             <class name="tests.Phone"/>
