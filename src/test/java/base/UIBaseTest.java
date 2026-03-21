@@ -7,6 +7,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
+import utils.ConfigRead;
 
 public class UIBaseTest {
     protected WebDriver driver;
@@ -25,7 +26,7 @@ public class UIBaseTest {
                 driver = new EdgeDriver();
             }
         driver.manage().window().maximize();
-        driver.get("https://demoblaze.com/");
+        driver.get(ConfigRead.get("ui.base.url"));
     }
 
     @AfterMethod                  //this works after every Test()
