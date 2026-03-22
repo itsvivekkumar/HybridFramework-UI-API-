@@ -2,6 +2,7 @@ package base;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
@@ -17,8 +18,10 @@ public class UIBaseTest {
     @BeforeMethod      //this works before every Test()
     public void setUp(String browser) {
 //        WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");
             if (browser.equalsIgnoreCase("chrome")) {
-                driver = new ChromeDriver();
+                driver = new ChromeDriver(options);
             } else if (browser.equalsIgnoreCase("firefox")) {
                 driver = new FirefoxDriver();
             }
