@@ -3,8 +3,8 @@ name: Hybrid Framework
 on:
   push:
     branches: [ "main", "master" ]
-  pull_request:
-    branches: [ "main", "master" ]
+  # pull_request:
+  #   branches: [ "main", "master" ]
 
 jobs:
   build-and-test:
@@ -20,7 +20,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: '22'
-          distribution: 'oracle'         # Oracle provides the latest Java 22 builds
+          distribution: 'oracle' 
           cache: 'maven'
 
       # 3. Run the tests using Maven
@@ -29,7 +29,7 @@ jobs:
 
       # 4. Upload Test Reports (so you can view them even without email)
       - name: Upload Reports
-        if: always()              # Runs even if tests fail
+        if: always()                       
         uses: actions/upload-artifact@v4
         with:
           name: test-reports
